@@ -1,29 +1,25 @@
-#
-#
-# 说明：
-# 
-# ‘删除在github空间的老固件’ 删除12小时之前的一切固件，保留数设置没效，一删除就会把在删除时间段内的固件全部删除
-#
-# ‘删除自动发布的老固件’ 每次启动都生效，可以设置保留数
-#
-# 手动按钮启动时候修改true为false也就关闭某项生效，env:下面的开关为定时删除时候分别控制开关
+name: Clean up old workflow runs
 
-
-name: 清理Actions
 on:
-  workflow_dispatch:
-
- # schedule:
-  #  - cron: 0 3 */3 * *
+  schedule:
+    - cron: '0 0 * * *'  # Schedule to run daily
 
 jobs:
-  del_runs:
+  cleanup:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@v4
-        with:
-          token: ${{ secrets.REPO_TOKEN }}
-          repository: ${{ github.repository }}
-          keep_minimum_runs: 0
-          retain_days: ${{ env.retain_days }}
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Delete old workflow runs
+        run: |
+          TOKEN=$GITHUB_TOKEN
+          OWNER=$GITHUB_REPOSITORY_OWNER
+          REPO=$GITHUB_REPOSITORY_NAME
+
+          runs=$(curl -s -H "Authorization: token $TOKEN" "https://api.github.com/repos/$OWNER/$REPO/actions/runs" | jq '.workflow_runs[] | select(.status == "completed" and .conclusion != null and .updated_at < "'$(date -d '30 days ago' --utc +%Y-%m-%dT%H:%M:%SZ)'") | .id')
+
+          for run in $runs; do
+            curl -X DELETE -s -H "Authorization: token $TOKEN" "https://api.github.com/repos/$OWNER/$REPO/actions/runs/$run"
+          done
