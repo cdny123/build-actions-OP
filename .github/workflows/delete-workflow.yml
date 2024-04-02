@@ -11,7 +11,7 @@ on:
         required: true
         default: '6'
       delete_workflow_pattern:
-        description: '工作流的名称或文件名(如果未设置，则针对所有工作流)'
+        description: '工作流的名称或文件名(默认关闭，则针对所有工作流)'
         required: false
       delete_workflow_by_state_pattern:
         description: '按状态筛选工作(默认全部)'
