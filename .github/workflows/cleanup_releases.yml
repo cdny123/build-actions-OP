@@ -1,4 +1,4 @@
-name: Cleanup old releases
+name: 清理releases
 
 on:
   schedule:
