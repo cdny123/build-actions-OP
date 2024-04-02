@@ -30,9 +30,7 @@ on:
         default: 'x86_64'
         type: choice
         options:
-          - '1907-phicomm-k3'
-          - 'aarch64'
-          - 'phicomm_k3'
+          - 'Xiaomi_Mi-Router-3G'
           - 'x86_64'
       CPU_SELECTION:
         description: 'CPU优选,增加编译速度'
