@@ -1,0 +1,26 @@
+name: Cleanup old releases
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 时间 00:00 执行清理操作
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Clean up old releases
+        run: |
+          # 添加清理 releases 的脚本命令
+          # 例如，删除旧版本的文件或目录
+
+      - name: Commit changes
+        run: |
+          git config user.email "you@example.com"
+          git config user.name "lq wq"
+          git add .
+          git commit -m "Cleanup old releases"
+          git push
