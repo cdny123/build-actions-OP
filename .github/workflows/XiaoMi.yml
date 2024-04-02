@@ -9,7 +9,7 @@
 #
 #
 
-name: Official_XiaoMi
+name: Official_XiaoMi旁路由
 on:
   workflow_dispatch:
     inputs:
