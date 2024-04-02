@@ -14,7 +14,7 @@ on:
         description: '工作流的名称或文件名(如果未设置，则针对所有工作流)'
         required: false
       delete_workflow_by_state_pattern:
-        description: 'Filter workflows by state: active, deleted, disabled_fork, disabled_inactivity, disabled_manually'
+        description: '按状态筛选工作(默认全部)'
         required: true
         default: "ALL"
         type: choice
