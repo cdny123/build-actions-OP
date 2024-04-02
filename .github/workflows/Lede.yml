@@ -28,10 +28,7 @@ on:
         options:
           - 'x86_32'
           - 'x86_64'
-          - 'xiaomi_mi-router-4a-gigabit'
-          - 'xiaomi_redmi-router-ac2100'
-          - 'xiaomi_redmi-router-ax6s'
-          - 'xiaoyu_xy-c5'
+          - 'Xiaomi_Mi-Router-3G'
       CPU_SELECTION:
         description: 'CPU优选,增加编译速度'
         required: true
