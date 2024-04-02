@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       days:
-        description: 'Days-wor每个工作流要保持的运行天数th of runs to keep for each workflow'
+        description: '每个工作流要保持的运行天数'
         required: true
         default: '30'
       minimum_runs:
-        description: 'Minimum runs to keep for each workflow'
+        description: '每个工作流程要保留的最少运行次数'
         required: true
         default: '6'
       delete_workflow_pattern:
