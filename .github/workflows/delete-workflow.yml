@@ -1,9 +1,9 @@
-name: Delete old workflow runs
+name: 删除旧的工作流运行
 on:
   workflow_dispatch:
     inputs:
       days:
-        description: 'Days-worth of runs to keep for each workflow'
+        description: 'Days-wor每个工作流要保持的运行天数th of runs to keep for each workflow'
         required: true
         default: '30'
       minimum_runs:
