@@ -1,26 +1,32 @@
-name: 清理 releases
+#!/bin/bash
 
-on:
-  schedule:
-    - cron: '0 0 * * *'  # 每天 UTC 时间 00:00 执行清理操作
+# 设置 Git 用户姓名信息
+git config --global user.name "lq-wq"
 
-jobs:
-  cleanup:
-    runs-on: ubuntu-latest
+# 获取7天前的日期
+seven_days_ago=$(date -d "7 days ago" +%Y-%m-%d)
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+# 列出所有 release 版本
+tags=$(git tag)
 
-      - name: Clean up old releases
-        run: |
-          # 添加清理 releases 的脚本命令
-          # 例如，删除旧版本的文件或目录
+# 循环遍历每个 release 版本
+for tag in $tags; do
+    # 获取 release 版本创建日期
+    tag_date=$(git log -1 --format=%ai $tag | cut -d ' ' -f 1)
+    
+    # 比较 release 版本创建日期是否在7天前之前
+    if [[ $tag_date < $seven_days_ago ]]; then
+        # 删除本地的过期 release 版本
+        git tag -d $tag
+        
+        # 删除远程仓库中的过期 release 版本
+        git push origin :refs/tags/$tag
+        
+        echo "Deleted old release version: $tag"
+    fi
+done
 
-      - name: Commit changes
-        run: |
-          git config user.email "you@example.com"
-          git config user.name "lq wq"
-          git add .
-          git commit -m "Cleanup old releases"
-          git push
+# 提交更改并推送到远程仓库
+git add .
+git commit -m "Cleanup old releases"
+git push origin main
