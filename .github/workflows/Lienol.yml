@@ -16,7 +16,7 @@ on:
       REPO_BRANCH:
         description: '（Lienol源码）请选择源码分支'
         required: true
-        default: '19.07'
+        default: '22.3'
         type: choice
         options:
           - '22.03'
@@ -30,7 +30,6 @@ on:
         default: 'x86_64'
         type: choice
         options:
-          - 'aarch64'
           - 'x86_64'
       CPU_SELECTION:
         description: 'CPU优选,增加编译速度'
