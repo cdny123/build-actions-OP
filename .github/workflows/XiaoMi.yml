@@ -27,11 +27,10 @@ on:
       CONFIG_FILE:
         description: '请选择配置文件'
         required: true
-        default: 'x86_64'
+        default: 'Xiaomi_Mi-Router-3G'
         type: choice
         options:
           - 'Xiaomi_Mi-Router-3G'
-          - 'x86_64'
       CPU_SELECTION:
         description: 'CPU优选,增加编译速度'
         required: true
