@@ -26,7 +26,6 @@ on:
         default: 'x86_64'
         type: choice
         options:
-          - 'x86_32'
           - 'x86_64'
           - 'Xiaomi_Mi-Router-3G'
       CPU_SELECTION:
