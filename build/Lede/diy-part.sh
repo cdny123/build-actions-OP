@@ -65,9 +65,10 @@ export Disable_53_redirection="0"            # 删除DNS强制重定向53端口�
 export Cancel_running="0"                    # 取消路由器每天跑分任务(个别源码本身不带此功能)(1为启用命令,填0为不作修改)
 
 # 添加APP插件
-git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt      # chatgpt-web
-git clone https://github.com/sirpdboy/luci-theme-kucat.git package/luci-app-kucat   # kucat主题
-git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design # design主题
+git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt            # chatgpt-web
+git clone https://github.com/sirpdboy/luci-theme-kucat.git package/luci-app-kucat         # kucat主题
+git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design       # design主题
+git clone https://github.com/brvphoenix/luci-app-wrtbwmon.git   package/luci-app-wrtbwmon # 带宽监视器
 
 
 # 晶晨CPU系列打包固件设置(不懂请看说明)
