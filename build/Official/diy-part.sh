@@ -73,8 +73,8 @@ git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-des
 git clone -b bypass https://github.com/shidahuilang/openwrt-package.git package/luci-app-bypass
 
 #添加CPU使用率、实时内存使用情况
-sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:CPU usage%></td><td><%##cpu%></td></tr>' package/lean/autocore/files/x86/index.htm
-sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Memory usage%></td><td><%##memory%></td></tr>' package/lean/autocore/files/x86/index.htm
+#sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:CPU usage%></td><td><%##cpu%></td></tr>' package/lean/autocore/files/x86/index.htm
+#sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Memory usage%></td><td><%##memory%></td></tr>' package/lean/autocore/files/x86/index.htm
 
 
 # 晶晨CPU系列打包固件设置(不懂请看说明)
