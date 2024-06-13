@@ -41,7 +41,7 @@ export OpenClash_Core="2"                   # 增加OpenClash时,把核心下载
 export Customized_Information="04543473 $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
 
 # 更换固件内核
-export Replace_Kernel="6.1"                 # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核x.x版本号,填0为不作修改)
+export Replace_Kernel="6.6"                 # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核x.x版本号,填0为不作修改)
 
 # 设置免密码登录(个别源码本身就没密码的)
 export Password_free_login="1"               # 设置首次登录后台密码为空（进入openwrt后自行修改密码）(1为启用命令,填0为不作修改)
@@ -69,6 +69,9 @@ git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt  
 git clone https://github.com/sirpdboy/luci-theme-kucat.git package/luci-app-kucat         # kucat主题
 git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design       # design主题
 #git clone https://github.com/brvphoenix/luci-app-wrtbwmon.git   package/luci-app-wrtbwmon # 带宽监视器
+
+#添加bypass插件
+git clone -b bypass https://github.com/shidahuilang/openwrt-package.git package/luci-app-bypass
 
 
 # 晶晨CPU系列打包固件设置(不懂请看说明)
