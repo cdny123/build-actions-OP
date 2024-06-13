@@ -75,9 +75,6 @@ git clone -b bypass https://github.com/shidahuilang/openwrt-package.git package/
 #添加CPU使用率、实时内存使用情况
 sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:CPU usage%></td><td><%##cpu%></td></tr>' package/lean/autocore/files/x86/index.htm
 sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Memory usage%></td><td><%##memory%></td></tr>' package/lean/autocore/files/x86/index.htm
-sed -i '5a\msgid "Compiler author"' feeds/luci/modules/luci-base/po/zh-cn/base.po
-sed -i '6a\msgstr "固件编译者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
-sed -i '7a \\' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
 
 # 晶晨CPU系列打包固件设置(不懂请看说明)
