@@ -27,7 +27,7 @@ export Disable_Bridge="0"                   # 旁路由去掉桥接模式(1为�
 export Create_Ipv6_Lan="0"                  # 爱快+OP双系统时,爱快接管IPV6,在OP创建IPV6的lan口接收IPV6信息(1为启用命令,填0为不作修改)
 
 # IPV6、IPV4 选择
-export Enable_IPV6_function="0"             # 编译IPV6固件(1为启用命令,填0为不作修改)(如果跟Create_Ipv6_Lan一起启用命令的话,Create_Ipv6_Lan命令会自动关闭)
+export Enable_IPV6_function="1"             # 编译IPV6固件(1为启用命令,填0为不作修改)(如果跟Create_Ipv6_Lan一起启用命令的话,Create_Ipv6_Lan命令会自动关闭)
 export Enable_IPV4_function="1"             # 编译IPV4固件(1为启用命令,填0为不作修改)(如果跟Enable_IPV6_function一起启用命令的话,此命令会自动关闭)
 
 # 替换passwall的源码(默认luci分支)
@@ -68,6 +68,16 @@ export Cancel_running="0"                   # 取消路由器每天跑分任务(
 git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt      # chatgpt-web
 git clone https://github.com/sirpdboy/luci-theme-kucat.git package/luci-app-kucat   # kucat主题
 git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design # design主题
+
+#添加bypass插件
+git clone -b bypass https://github.com/shidahuilang/openwrt-package.git package/luci-app-bypass
+
+#添加CPU使用率、实时内存使用情况
+sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:CPU usage%></td><td><%##cpu%></td></tr>' package/lean/autocore/files/x86/index.htm
+sed -i '/<tr><td width="33%"><%:CPU usage/a <tr><td width="33%"><%:Memory usage%></td><td><%##memory%></td></tr>' package/lean/autocore/files/x86/index.htm
+sed -i '5a\msgid "Compiler author"' feeds/luci/modules/luci-base/po/zh-cn/base.po
+sed -i '6a\msgstr "固件编译者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
+sed -i '7a \\' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
 
 # 晶晨CPU系列打包固件设置(不懂请看说明)
